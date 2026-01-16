@@ -1,0 +1,94 @@
+{
+  "test_date": "2026-01-02T23:16:27.092589",
+  "document": "tests/蔡安平-Few-shot_Learning_Framework_Based_on_Adaptive_Subspace_for_Skin_Disease_Classification-1.pdf",
+  "document_type": "PDF",
+  "total_citations": 10,
+  "total_references": 1,
+  "results": [
+    {
+      "citation_index": 1,
+      "original_citation": "[8]",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 2,
+      "original_citation": "[7]",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 3,
+      "original_citation": "[1]",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 4,
+      "original_citation": "[4]",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 5,
+      "original_citation": "[3]",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 6,
+      "original_citation": "[2]",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 7,
+      "original_citation": "[6]",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 8,
+      "original_citation": "[9]",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 9,
+      "original_citation": "[5]",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 10,
+      "original_citation": "[10]",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    }
+  ],
+  "matched_count": 0,
+  "unmatched_count": 0,
+  "corrected_count": 0,
+  "formatted_count": 0,
+  "unused_references_count": 1,
+  "match_rate": "0.0%",
+  "corrections_needed": [],
+  "formatting_needed": [],
+  "unused_references": [
+    {
+      "text": "Abstract—Skin disease classification from images is crucial to dermatological diagnosis. It is an important task to develop Computer Aided Detection(CAD) systems that can help dermatologists improve classification performances. One challenge limits the adoption of such systems so far: traditional CAD can't handle new emerging diseases. The reason is that standard deep learning models can only identify the categories that appear in the training set. However, this limitation can be addressed with Few-shot learning, a machine learning paradigm where a classifier has to generalize to a new category not seen in training, only given a few examples of this category. However, because of the complexity of lesions, most Few-shot learning methods do not work well in medical tasks. We find that most methods assume a single similarity measure and only obtain a single feature space. Motivated by this, we propose a three-stage learning paradigm. In the second stage, we introduce the subspace method to construct a symmetric function. In the third stage, we propose a metric module that consists of two similarity measures. In this way, the model enables to learn more discriminative features from few shots of skin disease images and has better generalization ability. The results demonstrate that our method produces a substantial improvement on the ISIC-2019 dataset.",
+      "author": null,
+      "year": null
+    }
+  ]
+}

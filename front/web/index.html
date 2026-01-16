@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaperChecker Web 控制台</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 32px;
+            background: #f5f7fb;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            width: min(860px, 100%);
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
+        }
+        h1 {
+            margin: 0 0 8px;
+            font-size: 1.9rem;
+            color: #0f172a;
+        }
+        p.desc {
+            margin: 0 0 24px;
+            color: #475569;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            border: 1px solid #cbd5f5;
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+        }
+        input[type="radio"] {
+            width: auto;
+        }
+        button {
+            border: none;
+            background: linear-gradient(135deg, #2563eb, #38bdf8);
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        button:not(:disabled):hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+        }
+        .progress {
+            margin-top: 24px;
+        }
+        .progress-label {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+        .progress-bar {
+            height: 12px;
+            border-radius: 999px;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(135deg, #4f46e5, #22d3ee);
+            transition: width 0.2s ease;
+        }
+        .log {
+            margin-top: 30px;
+            background: #0f172a;
+            color: #e2e8f0;
+            border-radius: 12px;
+            padding: 18px;
+            min-height: 150px;
+            font-family: Consolas, Menlo, Monaco, monospace;
+            white-space: pre-wrap;
+            overflow-y: auto;
+        }
+        .result {
+            margin-top: 24px;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid #dbeafe;
+            background: #eff6ff;
+            color: #0f172a;
+        }
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .result h2 {
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+        .result-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .result-md {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px dashed #bfdbfe;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 为渲染的 Markdown 内容添加样式 */
+        .result-md h1,
+        .result-md h2,
+        .result-md h3,
+        .result-md h4,
+        .result-md h5,
+        .result-md h6 {
+            margin: 1em 0 0.5em 0;
+            font-weight: bold;
+        }
+        .result-md p {
+            margin: 0.8em 0;
+        }
+        .result-md ul,
+        .result-md ol {
+            margin: 0.8em 0;
+            padding-left: 1.5em;
+        }
+        .result-md li {
+            margin: 0.3em 0;
+        }
+        .result-md pre {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1em 0;
+        }
+        .result-md code {
+            font-family: 'Monaco', 'Consolas', monospace;
+            background: #f1f5f9;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .result-md blockquote {
+            border-left: 3px solid #94a3b8;
+            padding-left: 12px;
+            margin: 1em 0;
+            color: #64748b;
+        }
+        .result-md pre code {
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            overflow-x: auto;
+        }
+        /* 为直接渲染的 HTML 内容添加样式 */
+        .result-md > h1 {
+            font-size: 1.5em;
+            margin: 0.8em 0 0.5em 0;
+            color: #0f172a;
+        }
+        .result-md > h2 {
+            font-size: 1.3em;
+            margin: 1em 0 0.5em 0;
+            color: #334155;
+        }
+        .result-md > p {
+            margin: 0.5em 0;
+            line-height: 1.5;
+        }
+        .result-md table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+        }
+        .result-md table,
+        .result-md th,
+        .result-md td {
+            border: 1px solid #cbd5e1;
+        }
+        .result-md th,
+        .result-md td {
+            padding: 0.5em;
+            text-align: left;
+        }
+        .result-md th {
+            background-color: #e2e8f0;
+            font-weight: bold;
+        }
+        .result-chip {
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: #1d4ed8;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        /* 关于模态框样式 */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow: auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            color: #0f172a;
+        }
+        .modal-content p {
+            margin: 0.8em 0;
+        }
+        .modal-content ul,
+        .modal-content ol {
+            margin: 0.8em 0;
+            padding-left: 1.5em;
+        }
+        .modal-content li {
+            margin: 0.3em 0;
+        }
+        .modal-content h1,
+        .modal-content h2,
+        .modal-content h3,
+        .modal-content h4 {
+            margin: 1em 0 0.5em 0;
+            font-weight: bold;
+        }
+        .modal-content pre {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1em 0;
+        }
+        .modal-content code {
+            font-family: 'Monaco', 'Consolas', monospace;
+            background: #f1f5f9;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .modal-content blockquote {
+            border-left: 3px solid #94a3b8;
+            padding-left: 12px;
+            margin: 1em 0;
+            color: #64748b;
+        }
+        .modal-content pre code {
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px;
+            }
+            .card {
+                padding: 22px;
+            }
+            .modal-content {
+                width: 95%;
+                max-height: 90vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>PaperChecker Web 控制台</h1>
+        <p class="desc">纯 HTML 前端，可直接双击打开；选择 Word 或 PDF 文档后即可上传并查看实时分析进度。</p>
+
+        <label for="file-input">待分析文档（.doc / .docx / .pdf）</label>
+        <input id="file-input" type="file" accept=".doc,.docx,.docm,.dot,.dotx,.dotm,.pdf">
+
+        <!-- 新增格式规则自定义区域 -->
+        <label for="author-format-options">作者署名格式规则</label>
+        <div id="author-format-options" style="border: 1px solid #cbd5f5; border-radius: 10px; padding: 16px; margin-bottom: 16px; background-color: #f8fafc;">
+            <div style="margin-bottom: 12px;">
+                <input type="radio" id="author-format-full" name="author-format" value="full" checked>
+                <label for="author-format-full" style="display: inline; font-weight: normal; margin-left: 8px;">选项 A：当文献作者为2人时，完整列出两位作者的姓名</label>
+            </div>
+            <div>
+                <input type="radio" id="author-format-abbrev" name="author-format" value="abbrev">
+                <label for="author-format-abbrev" style="display: inline; font-weight: normal; margin-left: 8px;">选项 B：当文献作者为2人时，仅标注第一作者姓名，后续统一标注 "等" 字</label>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+            <button id="upload-btn">仅上传</button>
+            <button id="citation-analyze-btn" disabled>引用分析</button>
+            <button id="relevance-analyze-btn" disabled>相关性分析</button>
+            <button id="delete-btn" style="background: linear-gradient(135deg, #e11d48, #f87171);">清空上传文件</button>
+            <button id="about-btn" style="background: linear-gradient(135deg, #64748b, #94a3b8);">关于</button>
+        </div>
+
+        <!-- 相关性检查功能区域 -->
+        <div id="relevance-check-section" style="border: 1px solid #cbd5f5; border-radius: 10px; padding: 16px; margin-bottom: 16px; background-color: #f8fafc; display: none;">
+            <h3 style="margin-top: 0; color: #0f172a;">相关性检查</h3>
+
+            <p style="margin-top: 0; margin-bottom: 16px; color: #475569;">分析文档：<strong id="relevance-doc-name">未选择文档</strong></p>
+
+            <label for="selected-citation">选择要检查的文献</label>
+            <select id="selected-citation" style="width: 100%; border: 1px solid #cbd5f5; border-radius: 10px; padding: 8px 12px; font-size: 1rem; box-sizing: border-box; margin-bottom: 16px;">
+                <option value="">请选择文献...</option>
+            </select>
+
+            <label for="task-type">检查类型</label>
+            <div style="margin-bottom: 16px;">
+                <input type="radio" id="task-type-article" name="task-type" value="文章整体" checked>
+                <label for="task-type-article" style="display: inline; font-weight: normal; margin-right: 16px;">当前文档整体</label>
+
+                <input type="radio" id="task-type-paragraph" name="task-type" value="段落">
+                <label for="task-type-paragraph" style="display: inline; font-weight: normal;">当前文档段落</label>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <button id="quick-check-btn" disabled>快速检测（基于标题）</button>
+                <button id="accurate-check-btn" disabled>准确检查（基于全文）</button>
+            </div>
+        </div>
+
+        <div class="progress">
+            <div class="progress-label">上传进度</div>
+            <div class="progress-bar"><span id="upload-progress"></span></div>
+        </div>
+        <div class="progress">
+            <div class="progress-label">分析进度</div>
+            <div class="progress-bar"><span id="analysis-progress"></span></div>
+        </div>
+
+        <div class="result" style="margin-top: 20px;">
+            <div class="result-header">
+                <h2>上传文件管理</h2>
+                <button id="refresh-files-btn" style="padding-inline:14px; font-size:0.85rem; background: linear-gradient(135deg, #64748b, #94a3b8);">刷新文件列表</button>
+            </div>
+            <div id="file-list-container">
+                <p>点击"刷新文件列表"按钮查看当前上传的临时文件</p>
+            </div>
+        </div>
+
+        <div id="result" class="result" hidden>
+            <div class="result-header">
+                <h2>分析摘要</h2>
+                <div>
+                    <button id="download-md-btn" style="display:inline-block; padding-inline:14px; font-size:0.85rem; margin-right: 8px;">下载 Markdown</button>
+                    <button id="download-txt-btn" style="display:inline-block; padding-inline:14px; font-size:0.85rem;">下载 TXT</button>
+                </div>
+            </div>
+            <div class="result-grid" id="result-grid"></div>
+            <div id="result-raw" class="result-md"></div>
+        </div>
+
+        <div class="log" id="log">等待操作...</div>
+    </div>
+
+    <script src="./marked.min.js"></script>
+    <script src="./highlight.min.js"></script>
+    <link rel="stylesheet" href="./default.min.css">
+    <script>
+        // 配置 marked 库选项以支持代码高亮
+        marked.setOptions({
+            gfm: true, // 启用 GitHub flavored markdown
+            breaks: false, // 不将换行符转换为 <br>
+            smartLists: true, // 使用智能列表
+            smartypants: false, // 不转换引号、破折号等为排版符号
+            highlight: function(code, lang) {
+                const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+                return hljs.highlight(code, { language }).value;
+            }
+        });
+        const fileInput = document.getElementById('file-input');
+        const uploadBtn = document.getElementById('upload-btn');
+        const citationAnalyzeBtn = document.getElementById('citation-analyze-btn');
+        const relevanceAnalyzeBtn = document.getElementById('relevance-analyze-btn');
+        const deleteBtn = document.getElementById('delete-btn');
+        const refreshFilesBtn = document.getElementById('refresh-files-btn');
+        const fileListContainer = document.getElementById('file-list-container');
+        const uploadProgress = document.getElementById('upload-progress');
+        const analysisProgress = document.getElementById('analysis-progress');
+        const logBox = document.getElementById('log');
+        const resultBox = document.getElementById('result');
+        const resultGrid = document.getElementById('result-grid');
+        const resultRaw = document.getElementById('result-raw');
+        const downloadMdBtn = document.getElementById('download-md-btn');
+        const downloadTxtBtn = document.getElementById('download-txt-btn');
+
+        // 当前选中的文件路径
+        let selectedFilePath = null;
+
+        // 获取作者格式选项元素
+        const authorFormatFull = document.getElementById('author-format-full');
+        const authorFormatAbbrev = document.getElementById('author-format-abbrev');
+
+        let lastMarkdown = "";
+
+        const defaultBase = window.location.origin.includes('http')
+            ? window.location.origin
+            : 'http://127.0.0.1:8000';
+
+        function log(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            logBox.textContent = '[' + timestamp + '] ' + message + '\n' + logBox.textContent;
+        }
+
+        function setBar(bar, percent) {
+            const value = Math.min(100, Math.max(0, percent));
+            bar.style.width = value + '%';
+        }
+
+        // HTML 转换 JSON 对象为结构化文本格式
+        function convertJsonToText(obj, indentLevel = 0) {
+            const indent = '&nbsp;'.repeat(indentLevel * 4); // 4个空格的缩进
+            let result = '';
+
+            if (obj === null) {
+                return 'null';
+            } else if (typeof obj === 'undefined') {
+                return 'undefined';
+            } else if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') {
+                return escapeHtml(String(obj));
+            } else if (Array.isArray(obj)) {
+                if (obj.length === 0) {
+                    return '[]';
+                }
+                result += '[<br>';
+                obj.forEach((item, index) => {
+                    result += indent + '&nbsp;&nbsp;&nbsp;&nbsp;' + convertJsonToText(item, indentLevel + 1);
+                    if (index < obj.length - 1) {
+                        result += ',<br>';
+                    } else {
+                        result += '<br>';
+                    }
+                });
+                result += indent + ']';
+            } else if (typeof obj === 'object') {
+                const keys = Object.keys(obj);
+                if (keys.length === 0) {
+                    return '{}';
+                }
+                result += '{<br>';
+                keys.forEach((key, index) => {
+                    const value = obj[key];
+                    result += indent + '&nbsp;&nbsp;&nbsp;&nbsp;"' + escapeHtml(key) + '": ' + convertJsonToText(value, indentLevel + 1);
+                    if (index < keys.length - 1) {
+                        result += ',<br>';
+                    } else {
+                        result += '<br>';
+                    }
+                });
+                result += indent + '}';
+            }
+            return result;
+        }
+
+        // 将 payload 转换为结构化的 Markdown 报告格式
+        function convertPayloadToMarkdown(payload) {
+            let result = '# PaperChecker 引用分析报告\n\n';
+
+            if (payload.document) {
+                // 提取文件名而不是完整路径
+                const documentFileName = payload.document.split('/').pop();
+                result += `- **文档**: ${escapeHtml(documentFileName)}\n`;
+            }
+            if (payload.test_date) {
+                // 格式化日期为 "YYYY年MM月DD日 HH:mm:ss" 格式
+                const date = new Date(payload.test_date);
+                const formattedDate = `${date.getFullYear()}年${(date.getMonth() + 1).toString().padStart(2, '0')}月${date.getDate().toString().padStart(2, '0')}日 ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+                result += `- **生成时间**: ${formattedDate}\n\n`;
+            }
+
+            result += '**整体统计**\n\n';
+            result += '| 指标 | 数值 |\n';
+            result += '| --- | --- |\n';
+            if (payload.total_citations) result += `| 引用总数 | ${payload.total_citations} |\n`;
+            if (payload.total_references) result += `| 参考文献数 | ${payload.total_references} |\n`;
+            if (payload.matched_count) result += `| 匹配条目 | ${payload.matched_count} |\n`;
+            if (payload.unmatched_count) result += `| 未匹配条目 | ${payload.unmatched_count} |\n`;
+            if (payload.corrected_count) result += `| 需要修正 | ${payload.corrected_count} |\n`;
+            if (payload.formatted_count) result += `| 需要格式化 | ${payload.formatted_count} |\n`;
+            if (payload.match_rate) result += `| 匹配率 | ${payload.match_rate} |\n`;
+            result += '\n';
+
+            // 修正的引用
+            if (payload.corrections_needed && payload.corrections_needed.length > 0) {
+                result += '**需要修正的引用**\n\n';
+                payload.corrections_needed.forEach(item => {
+                    result += `- **原文**: ${escapeHtml(removeAuthPrefix(item.original || ''))}\n- **修正**: ${escapeHtml(removeAuthPrefix(item.corrected || ''))}\n- **参考文献**: ${escapeHtml(item.reference || '').substring(0, 100)}...\n`;
+                });
+                result += '\n';
+            }
+
+            // 格式化需要的引用
+            if (payload.formatting_needed && payload.formatting_needed.length > 0) {
+                result += '**需要格式化的引用**\n\n';
+                payload.formatting_needed.forEach(item => {
+                    result += `- **原文**: ${escapeHtml(removeAuthPrefix(item.original || ''))}\n- **格式化**: ${escapeHtml(removeAuthPrefix(item.formatted || ''))}\n- **参考文献**: ${escapeHtml(item.reference || '').substring(0, 100)}...\n`;
+                });
+                result += '\n';
+            }
+
+            // 未被引用的参考文献
+            if (payload.unused_references && payload.unused_references.length > 0) {
+                result += '**未被引用的参考文献**\n\n';
+                payload.unused_references.forEach(item => {
+                    result += `- **文本**: ${escapeHtml(item.text || '')}\n`;
+                });
+                result += '\n';
+            }
+
+            // 引用详情
+            if (payload.results && payload.results.length > 0) {
+                result += '**引用详情**\n\n';
+                payload.results.forEach((item, index) => {
+                    result += `**引用 ${index + 1}**\n`;
+                    result += `- 原始引用: ${escapeHtml(removeAuthPrefix(item.original_citation || ''))}\n`;
+                    result += `- 匹配状态: ${item.matched ? '已匹配' : '未匹配'}\n`;
+
+                    if (item.matched) {
+                        if (item.reference_text) {
+                            result += `- 参考文献: ${escapeHtml(item.reference_text)}\n`;
+                        }
+
+                        if (item.needs_correction && item.corrected_citation) {
+                            result += `- 建议修正: ${escapeHtml(item.corrected_citation)}\n`;
+                            if (item.correction_reason) {
+                                result += `- 原因: ${escapeHtml(item.correction_reason)}\n`;
+                            }
+                        }
+
+                        if (item.needs_formatting && item.formatted_citation) {
+                            result += `- 建议格式化: ${escapeHtml(item.formatted_citation)}\n`;
+                            if (item.formatting_reason) {
+                                result += `- 原因: ${escapeHtml(item.formatting_reason)}\n`;
+                            }
+                        }
+                    }
+                    result += '\n';
+                });
+            }
+
+            return result;
+        }
+
+        // HTML 转义函数，防止 XSS 攻击和解析错误，处理所有数据类型
+        // 将 Markdown 内容转换为纯文本
+        function convertMdToTxt(markdown) {
+            // 移除 Markdown 格式标记
+            return markdown
+                // 移除标题标记
+                .replace(/^#+\s*/gm, '')
+                // 移除粗体标记
+                .replace(/\*\*(.*?)\*\*/g, '$1')
+                .replace(/__(.*?)__/g, '$1')
+                // 移除斜体标记
+                .replace(/\*(.*?)\*/g, '$1')
+                .replace(/_(.*?)_/g, '$1')
+                // 移除删除线标记
+                .replace(/~~(.*?)~~/g, '$1')
+                // 移除行内代码标记
+                .replace(/`(.*?)`/g, '$1')
+                // 移除链接和图片标记，保留文字
+                .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')  // 图片
+                .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')    // 链接
+                // 移除无序列表标记
+                .replace(/^\s*-\s+/gm, '')
+                .replace(/^\s*\*\s+/gm, '')
+                .replace(/^\s*\+\s+/gm, '')
+                // 移除有序列表标记
+                .replace(/^\s*\d+\.\s+/gm, '')
+                // 处理表格（保留内容，移除表格格式）
+                .replace(/^\|(.+)\|$/gm, function(match, content) {
+                    return content.replace(/\s*\|\s*/g, ' | ');
+                })
+                // 清理多余的空白行
+                .replace(/\n\s*\n/g, '\n\n');
+        }
+
+        function escapeHtml(text) {
+            // 确保输入是字符串类型
+            const str = String(text);
+            return str
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;")
+                .replace(/`/g, "&#96;"); // 转义反引号，避免与 Markdown 冲突
+        }
+
+        function removeAuthPrefix(text) {
+            if (typeof text === 'string' && text.startsWith('[AUTH:')) {
+                return text.substring(6, text.length - 1); // 去掉[AUTH:开头和]结尾
+            }
+            return text;
+        }
+
+        function renderResult(payload) {
+            resultGrid.innerHTML = '';
+
+            // 确保 marked 库可用
+            if (typeof marked === 'undefined') {
+                log('错误：marked 库未加载');
+                resultRaw.textContent = 'Markdown 渲染库未加载，请检查网络连接';
+                resultBox.hidden = false;
+                return;
+            }
+
+            // 优先展示后端生成的 Markdown 文本，而不是原始 JSON 代码
+            if (payload && typeof payload.markdown === 'string' && payload.markdown.trim()) {
+                lastMarkdown = payload.markdown;
+                try {
+                    // 使用 marked 库将 Markdown 渲染为 HTML
+                    const renderedHTML = marked.parse(payload.markdown);
+                    resultRaw.innerHTML = renderedHTML;
+                } catch (error) {
+                    console.error('Markdown 解析错误:', error);
+                    // 如果解析失败，回退到显示原始 Markdown 文本
+                    resultRaw.textContent = payload.markdown;
+                }
+                downloadMdBtn.style.display = 'inline-block';
+                downloadTxtBtn.style.display = 'inline-block';
+            } else {
+                // 完全使用直接 HTML 渲染，不依赖 Markdown 解析
+                let htmlContent = '<h1>分析结果</h1>';
+
+                if (payload.match_rate !== undefined && payload.match_rate !== null) htmlContent += '<p><strong>匹配率：</strong> ' + escapeHtml(payload.match_rate) + '</p>';
+                if (payload.total_citations !== undefined && payload.total_citations !== null) htmlContent += '<p><strong>引用总数：</strong> ' + escapeHtml(payload.total_citations) + '</p>';
+                if (payload.total_references !== undefined && payload.total_references !== null) htmlContent += '<p><strong>参考文献：</strong> ' + escapeHtml(payload.total_references) + '</p>';
+                if (payload.matched_count !== undefined && payload.matched_count !== null) htmlContent += '<p><strong>已匹配：</strong> ' + escapeHtml(payload.matched_count) + '</p>';
+                if (payload.unmatched_count !== undefined && payload.unmatched_count !== null) htmlContent += '<p><strong>未匹配：</strong> ' + escapeHtml(payload.unmatched_count) + '</p>';
+                if (payload.corrected_count !== undefined && payload.corrected_count !== null) htmlContent += '<p><strong>纠正数：</strong> ' + escapeHtml(payload.corrected_count) + '</p>';
+                if (payload.formatted_count !== undefined && payload.formatted_count !== null) htmlContent += '<p><strong>格式化建议：</strong> ' + escapeHtml(payload.formatted_count) + '</p>';
+
+                // 生成结构化的 Markdown 内容
+                const markdownContent = convertPayloadToMarkdown(payload);
+
+                // 使用 marked 库将 Markdown 渲染为 HTML
+                const renderedHTML = marked.parse(markdownContent);
+
+                // 添加到页面
+                htmlContent += '<h2>详细数据</h2>';
+                htmlContent += '<div class="detailed-data">' + renderedHTML + '</div>';
+
+                resultRaw.innerHTML = htmlContent;
+
+                // 保存原始 Markdown 内容用于下载
+                lastMarkdown = markdownContent;
+
+                downloadMdBtn.style.display = 'inline-block';
+
+                // 同时显示下载 TXT 按钮
+                downloadTxtBtn.style.display = 'inline-block';
+            }
+
+            const mapping = [
+                ['匹配率', payload.match_rate],
+                ['引用总数', payload.total_citations],
+                ['参考文献', payload.total_references],
+                ['已匹配', payload.matched_count],
+                ['未匹配', payload.unmatched_count],
+                ['纠正数', payload.corrected_count],
+                ['格式化建议', payload.formatted_count],
+            ];
+
+            mapping.forEach(([label, value]) => {
+                if (value === undefined || value === null || value === '') return;
+                const chip = document.createElement('div');
+                chip.className = 'result-chip';
+                chip.textContent = label + '：' + value;
+                resultGrid.appendChild(chip);
+            });
+
+            resultBox.hidden = false;
+        }
+
+        // 下载 Markdown 报告
+        downloadMdBtn.addEventListener('click', () => {
+            if (!lastMarkdown) {
+                log('当前没有可下载的报告内容。');
+                return;
+            }
+            const blob = new Blob([lastMarkdown], { type: 'text/markdown;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            const file = fileInput.files[0];
+            const baseName = file ? file.name.replace(/\.[^.]+$/, '') : 'paperchecker-report';
+            a.href = url;
+            a.download = baseName + '_citation_report.md';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // 下载 TXT 报告
+        downloadTxtBtn.addEventListener('click', () => {
+            if (!lastMarkdown) {
+                log('当前没有可下载的报告内容。');
+                return;
+            }
+            const txtContent = convertMdToTxt(lastMarkdown);
+            const blob = new Blob([txtContent], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            const file = fileInput.files[0];
+            const baseName = file ? file.name.replace(/\.[^.]+$/, '') : 'paperchecker-report';
+            a.href = url;
+            a.download = baseName + '_citation_report.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+
+
+
+
+
+
+
+        // 从文档中提取引用文献
+        function extractCitationsFromDocument(filePath) {
+            // 清空文献选择框
+            const citationSelect = document.getElementById('selected-citation');
+            citationSelect.innerHTML = '<option value="">请选择文献...</option>';
+
+            // 从后端获取文档的引用信息
+            const serverUrl = defaultBase.trim().replace(/\/$/, '');
+            const extractCitationsUrl = serverUrl + '/api/extract-citations';
+
+            const formData = new FormData();
+            formData.append('file_path', filePath);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', extractCitationsUrl, true);
+
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        try {
+                            const response = JSON.parse(xhr.responseText);
+                            if (response.citations && response.citations.length > 0) {
+                                response.citations.forEach(citation => {
+                                    const option = document.createElement('option');
+                                    option.value = citation.text || citation;
+                                    option.textContent = citation.text || citation;
+                                    citationSelect.appendChild(option);
+                                });
+
+                                log(`提取到 ${response.citations.length} 条引用文献`);
+                            } else {
+                                log('文档中未找到引用文献');
+                            }
+                        } catch (err) {
+                            log('解析引用文献响应失败：' + err.message);
+                        }
+                    } else {
+                        log('提取引用文献失败：' + (xhr.responseText || ('状态码 ' + xhr.status)));
+                    }
+                }
+            };
+
+            xhr.onerror = () => {
+                log('网络异常，提取引用文献失败。');
+            };
+
+            xhr.send(formData);
+        }
+
+        // 分析从文件列表选择的文件
+        function analyzeFileFromList(filePath) {
+            const serverUrl = defaultBase.trim().replace(/\/$/, '');
+            const analyzeUrl = serverUrl + '/api/full-report-from-path';
+
+            // 获取当前选中的作者格式
+            const selectedAuthorFormat = document.querySelector('input[name="author-format"]:checked').value;
+
+            // 创建表单数据
+            const formData = new FormData();
+            formData.append('file_path', filePath);
+            formData.append('author_format', selectedAuthorFormat);
+
+            setBar(uploadProgress, 0);
+            setBar(analysisProgress, 0);
+            resultBox.hidden = true;
+            log('准备分析文件：' + filePath.split('/').pop() + '，作者格式规则：' + (selectedAuthorFormat === 'full' ? '完整显示' : '简略显示'));
+
+            citationAnalyzeBtn.disabled = true;
+
+            // 更新分析按钮的状态
+            const originalButtonText = citationAnalyzeBtn.textContent;
+            citationAnalyzeBtn.textContent = '分析中...';
+
+            const xhr = new XMLHttpRequest();
+
+            // 模拟分析进度，因为后端不提供进度API
+            const progressInterval = setInterval(() => {
+                if (xhr.readyState < 4) {
+                    // 模拟分析进度
+                    const currentProgress = parseFloat(analysisProgress.style.width || '0');
+                    if (currentProgress < 90) { // 不到100%，因为我们要等待实际响应
+                        setBar(analysisProgress, currentProgress + 2);
+                    }
+                }
+            }, 500);
+
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState !== XMLHttpRequest.DONE) return;
+
+                clearInterval(progressInterval); // 停止模拟进度
+
+                // 恢复分析按钮的原始状态
+                citationAnalyzeBtn.disabled = false;
+                citationAnalyzeBtn.textContent = originalButtonText;
+
+                if (xhr.status === 200) {
+                    setBar(uploadProgress, 100);
+                    setBar(analysisProgress, 100);
+                    log('分析完成。');
+                    try {
+                        const payload = JSON.parse(xhr.responseText);
+                        renderResult(payload);
+                    } catch (err) {
+                        log('响应解析失败：' + err.message);
+                    }
+                } else {
+                    log('请求失败：' + (xhr.responseText || ('状态码 ' + xhr.status)));
+                }
+            };
+
+            xhr.onerror = () => {
+                clearInterval(progressInterval); // 停止模拟进度
+                citationAnalyzeBtn.disabled = false;
+                citationAnalyzeBtn.textContent = originalButtonText;
+                log('网络异常，请确认后端服务可访问。');
+            };
+
+            xhr.open('POST', analyzeUrl, true);
+            xhr.send(formData);
+        }
+
+        // 删除单个文件
+        function deleteSingleFile(filePath) {
+            if (!confirm(`确定要删除文件 "${filePath.replace(/^.*[\\/]/, '')}" 吗？此操作不可撤销。`)) {
+                return;
+            }
+
+            const serverUrl = defaultBase.trim().replace(/\/$/, '');
+            const deleteUrl = serverUrl + '/api/file?file_path=' + encodeURIComponent(filePath);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('DELETE', deleteUrl, true);
+
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        try {
+                            const response = JSON.parse(xhr.responseText);
+                            if (response.success) {
+                                log(`文件删除成功: ${filePath.replace(/^.*[\\/]/, '')}`);
+                                // 重新加载文件列表
+                                loadFileList();
+                            } else {
+                                log(`文件删除失败: ${response.message || '未知错误'}`);
+                            }
+                        } catch (err) {
+                            log('文件删除响应解析失败：' + err.message);
+                        }
+                    } else {
+                        log('文件删除失败：' + (xhr.responseText || ('状态码 ' + xhr.status)));
+                    }
+                }
+            };
+
+            xhr.onerror = () => {
+                log('网络异常，文件删除失败。');
+            };
+
+            xhr.send();
+        }
+
+
+        // README 内容
+        const readmeContent = `# 引文合规性检查系统 - 功能介绍
+
+## 系统概述
+这是一款基于人工智能技术的引文合规性检查系统，能够自动分析学术论文中的引文与参考文献的匹配情况，识别缺失、格式不正确或年份不一致的问题，帮助研究者提高论文质量和学术规范性。
+
+## 核心功能
+
+### 1. 文档上传与解析
+- **支持格式**：Word 文档（.docx, .doc）
+- **文件大小限制**：最大 10MB
+- **智能解析**：自动识别文档结构，提取正文和参考文献部分
+
+### 2. 格式引文识别
+
+#### 作者-年份格式
+- **中文格式**：张三（2024）、李四等（2023）
+- **英文格式**：Smith（2020）、Johnson & Brown（2021）、Smith et al.（2019）
+- **括号格式**：（张三，2024）、（Smith, 2020）
+
+### 3. 智能引用匹配
+- **双向映射**：将正文中的引文与参考文献列表进行精确匹配
+- **智能识别**：即使格式略有差异也能正确匹配
+- **上下文分析**：分析引文在正文中的使用语境
+
+### 4. 自动化校验与修正
+#### 年份校验
+- 自动检测引文年份与参考文献年份的不一致性
+- 为不匹配的引文提供正确的年份
+
+#### 格式标准化
+- 统一引文格式，确保风格一致性
+- 规范作者名称显示（如将"张三，李四"转换为"张三等"）
+
+#### 质量检查
+- 识别未在参考文献中出现的引文
+- 发现参考文献中未被引用的条目
+
+### 5. 详细的分析报告
+系统生成全面的分析报告，包括：
+
+#### 匹配统计
+- 引用数量统计
+- 匹配成功率
+- 未匹配引用列表
+
+#### 修正建议
+- 年份不一致的修正建议
+- 格式标准化建议
+- 缺失引用提示
+
+#### 引用格式化
+- 按照不同学术标准格式化引用
+- 统一作者列表格式（单作者、多作者、等/et al.）
+
+### 6. AI 驱动的优化
+- **智能格式化**：使用 AI 模型优化引用格式
+- **错误容忍**：能够处理非标准格式并自动纠正
+- **上下文理解**：分析引文在上下文中的正确性
+
+## 技术特性
+
+### 高精度识别
+- 支持多种中英文引用格式
+- 智能正则表达式匹配
+- AI 辅助内容理解
+
+### 用户友好
+- 简单的文档上传界面
+- 清晰的报告展示
+- 详细的错误说明
+
+### 高效处理
+- 批量处理能力
+- 智能缓存机制
+- 快速响应时间
+
+## 应用场景
+
+### 学术写作
+- 学位论文格式检查
+- 学术期刊投稿准备
+- 研究报告规范化
+
+### 编辑校对
+- 出版社质量控制
+- 期刊编辑辅助工具
+- 学术编辑工作支持
+
+### 教学辅助
+- 学生论文写作指导
+- 引用规范教育
+- 学术诚信培养
+
+## 工作流程
+
+1. **上传文档** - 将 Word 文档上传到系统
+2. **自动分析** - 系统解析文档，提取引文和参考文献
+3. **智能匹配** - AI 算法进行引文匹配和格式优化
+4. **生成报告** - 输出详细的分析和修正建议
+5. **格式修正** - 根据建议修正不规范的引文
+
+## 使用效果
+
+使用本系统后，用户可以获得：
+- **100%** 的引文匹配检测
+- **95%+** 的高匹配准确率
+- **标准化** 的引文格式
+- **合规性** 的学术规范保证
+- **高效性** 的文档处理速度
+
+
+
+*本系统专注于提高学术写作的规范性和准确性，是研究人员、编辑和学生的重要辅助工具。*`;
+
+        // 页面加载完成后自动加载文件列表和绑定关于按钮事件
+        window.addEventListener('DOMContentLoaded', function() {
+            // 将 README 内容转换为 HTML 并显示在模态框中
+            const aboutContentElement = document.getElementById('about-content');
+            if (aboutContentElement) {
+                aboutContentElement.innerHTML = marked.parse(readmeContent);
+            }
+
+            // 选择文件函数
+            function selectFile(filePath) {
+                selectedFilePath = filePath;
+
+                // 更新UI以反映选择状态
+                document.querySelectorAll('.file-list-item').forEach(item => {
+                    const itemPath = decodeURIComponent(item.getAttribute('data-filepath'));
+                    if (itemPath === filePath) {
+                        item.style.backgroundColor = '#dbeafe'; // 选中状态的背景色
+                    } else {
+                        item.style.backgroundColor = ''; // 恢复默认背景色
+                    }
+                });
+
+                // 启用分析按钮
+                citationAnalyzeBtn.disabled = false;
+                relevanceAnalyzeBtn.disabled = false;
+
+                // 隐藏相关性检查区域（只在点击相关性分析按钮时显示）
+                hideRelevanceCheckSection();
+                disableRelevanceCheckButtons();
+
+                log('已选择文件：' + filePath.split('/').pop());
+            }
+
+            // 显示文件列表
+            function displayFileList(files) {
+                if (!files || files.length === 0) {
+                    fileListContainer.innerHTML = '<p>暂无上传的临时文件</p>';
+                    // 禁用分析按钮，因为没有可选择的文件
+                    citationAnalyzeBtn.disabled = true;
+                    relevanceAnalyzeBtn.disabled = true;
+                    return;
+                }
+
+                let html = '<ul style="list-style: none; padding: 0; margin: 10px 0;">';
+                files.forEach(fileObj => {
+                    // 使用后端返回的name字段，如果不存在则从path中提取
+                    const fileName = fileObj.name || fileObj.path.replace(/^.*[\\/]/, '');
+                    const filePath = fileObj.path; // 使用对象的path字段
+                    // 高亮显示当前选择的文件
+                    const isSelected = selectedFilePath === filePath ? 'background-color: #dbeafe;' : '';
+                    html += `
+                        <li style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #e2e8f0; ${isSelected}"
+                            data-filepath="${encodeURIComponent(filePath)}" class="file-list-item">
+                            <span title="${filePath}" class="file-name-clickable" data-filepath="${encodeURIComponent(filePath)}"
+                                style="cursor: pointer; color: #2563eb; text-decoration: underline; flex: 1;">
+                                ${fileName}
+                            </span>
+                            <div>
+                                <button class="select-file-btn" data-filepath="${encodeURIComponent(filePath)}"
+                                    style="padding: 4px 10px; font-size: 0.8rem; background: linear-gradient(135deg, #3b82f6, #60a5fa); margin-right: 8px;">选择</button>
+                                <button class="analyze-file-btn" data-filepath="${encodeURIComponent(filePath)}"
+                                    style="padding: 4px 10px; font-size: 0.8rem; background: linear-gradient(135deg, #10b981, #34d399); margin-right: 8px;">分析</button>
+                                <button class="delete-single-file-btn" data-filepath="${encodeURIComponent(filePath)}"
+                                    style="padding: 4px 10px; font-size: 0.8rem; background: linear-gradient(135deg, #e11d48, #f87171);">删除</button>
+                            </div>
+                        </li>
+                    `;
+                });
+                html += '</ul>';
+
+                fileListContainer.innerHTML = html;
+
+                // 为删除单个文件按钮添加事件监听器
+                document.querySelectorAll('.delete-single-file-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const filePath = decodeURIComponent(this.getAttribute('data-filepath'));
+                        deleteSingleFile(filePath);
+                    });
+                });
+
+                // 为选择文件按钮添加事件监听器
+                document.querySelectorAll('.select-file-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const filePath = decodeURIComponent(this.getAttribute('data-filepath'));
+                        selectFile(filePath);
+                    });
+                });
+
+                // 为分析单个文件按钮添加事件监听器
+                document.querySelectorAll('.analyze-file-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const filePath = decodeURIComponent(this.getAttribute('data-filepath'));
+                        selectFile(filePath); // 先选择文件
+                        analyzeFileFromList(filePath); // 然后分析
+                    });
+                });
+
+                // 为文件名添加点击事件监听器，点击后选择文件
+                document.querySelectorAll('.file-name-clickable').forEach(span => {
+                    span.addEventListener('click', function() {
+                        const filePath = decodeURIComponent(this.getAttribute('data-filepath'));
+                        selectFile(filePath);
+                    });
+                });
+
+                // 为整个文件列表项添加点击事件，点击后选择文件
+                document.querySelectorAll('.file-list-item').forEach(item => {
+                    item.addEventListener('click', function(event) {
+                        // 防止按钮点击事件冒泡导致重复处理
+                        if (event.target.tagName !== 'BUTTON') {
+                            const filePath = decodeURIComponent(this.getAttribute('data-filepath'));
+                            selectFile(filePath);
+                        }
+                    });
+                });
+            }
+
+            // 刷新上传文件列表
+            function loadFileList() {
+                const serverUrl = defaultBase.trim().replace(/\/$/, '');
+                const listUrl = serverUrl + '/api/list-all-files';
+
+                refreshFilesBtn.disabled = true;
+                fileListContainer.innerHTML = '<p>正在加载文件列表...</p>';
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', listUrl, true);
+
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        refreshFilesBtn.disabled = false;
+                        if (xhr.status === 200) {
+                            try {
+                                const response = JSON.parse(xhr.responseText);
+                                if (response.files && response.files.length > 0) {
+                                    displayFileList(response.files);
+                                } else {
+                                    fileListContainer.innerHTML = '<p>暂无上传的临时文件</p>';
+                                    // 没有文件时隐藏相关性检查区域
+                                    hideRelevanceCheckSection();
+                                    disableRelevanceCheckButtons();
+                                    selectedFilePath = null;
+                                }
+                            } catch (err) {
+                                fileListContainer.innerHTML = '<p>加载文件列表失败：' + err.message + '</p>';
+                            }
+                        } else {
+                            fileListContainer.innerHTML = '<p>获取文件列表失败：' + (xhr.responseText || ('状态码 ' + xhr.status)) + '</p>';
+                        }
+                    }
+                };
+
+                xhr.onerror = () => {
+                    refreshFilesBtn.disabled = false;
+                    fileListContainer.innerHTML = '<p>网络异常，加载文件列表失败。</p>';
+                };
+
+                xhr.send();
+            }
+
+            // 当选择文件后，显示相关性检查区域
+            function showRelevanceCheckSection() {
+                console.log('showRelevanceCheckSection 被调用');
+                const element = document.getElementById('relevance-check-section');
+                if (element) {
+                    console.log('找到相关性检查区域元素，设置为 block');
+                    element.style.display = 'block';
+                } else {
+                    console.error('未找到相关性检查区域元素');
+                }
+            }
+
+            // 当取消选择文件后，隐藏相关性检查区域
+            function hideRelevanceCheckSection() {
+                console.log('hideRelevanceCheckSection 被调用');
+                const element = document.getElementById('relevance-check-section');
+                if (element) {
+                    console.log('找到相关性检查区域元素，设置为 none');
+                    element.style.display = 'none';
+                } else {
+                    console.error('未找到相关性检查区域元素');
+                }
+            }
+
+            // 启用相关性检查按钮
+            function enableRelevanceCheckButtons() {
+                document.getElementById('quick-check-btn').disabled = false;
+                document.getElementById('accurate-check-btn').disabled = false;
+            }
+
+            // 禁用相关性检查按钮
+            function disableRelevanceCheckButtons() {
+                document.getElementById('quick-check-btn').disabled = true;
+                document.getElementById('accurate-check-btn').disabled = true;
+            }
+
+            // 相关性检查函数
+            function performRelevanceCheck(useFullContent) {
+                if (!selectedFilePath) {
+                    log('请先从文件列表中选择一个文档进行分析。');
+                    return;
+                }
+
+                const selectedCitation = document.getElementById('selected-citation').value;
+                if (!selectedCitation) {
+                    log('请选择要检查的文献。');
+                    return;
+                }
+
+                const taskType = document.querySelector('input[name="task-type"]:checked').value;
+
+                const serverUrl = defaultBase.trim().replace(/\/$/, '');
+                const relevanceCheckUrl = serverUrl + '/api/relevance-check';
+
+                const formData = new FormData();
+                formData.append('file_path', selectedFilePath);
+                // 使用选中的文献作为目标内容
+                formData.append('target_content', selectedCitation);
+                formData.append('task_type', taskType);
+                formData.append('use_full_content', useFullContent);
+
+                setBar(uploadProgress, 0);
+                setBar(analysisProgress, 0);
+                resultBox.hidden = true;
+                log(`开始${useFullContent ? '准确' : '快速'}相关性检查，检查文献：${selectedCitation.substring(0, 30)}...`);
+
+                // 禁用相关性检查按钮
+                disableRelevanceCheckButtons();
+
+                // 更新按钮状态
+                const quickBtn = document.getElementById('quick-check-btn');
+                const accurateBtn = document.getElementById('accurate-check-btn');
+                const originalQuickText = quickBtn.textContent;
+                const originalAccurateText = accurateBtn.textContent;
+
+                if (useFullContent) {
+                    accurateBtn.textContent = '检查中...';
+                } else {
+                    quickBtn.textContent = '检查中...';
+                }
+
+                const xhr = new XMLHttpRequest();
+
+                // 模拟分析进度
+                const progressInterval = setInterval(() => {
+                    if (xhr.readyState < 4) {
+                        const currentProgress = parseFloat(analysisProgress.style.width || '0');
+                        if (currentProgress < 90) {
+                            setBar(analysisProgress, currentProgress + 2);
+                        }
+                    }
+                }, 500);
+
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+
+                    clearInterval(progressInterval);
+
+                    // 恢复按钮状态
+                    quickBtn.textContent = originalQuickText;
+                    accurateBtn.textContent = originalAccurateText;
+
+                    // 启用相关性检查按钮
+                    enableRelevanceCheckButtons();
+
+                    if (xhr.status === 200) {
+                        setBar(uploadProgress, 100);
+                        setBar(analysisProgress, 100);
+                        log('相关性检查完成。');
+                        try {
+                            const payload = JSON.parse(xhr.responseText);
+                            renderRelevanceResult(payload);
+                        } catch (err) {
+                            log('响应解析失败：' + err.message);
+                        }
+                    } else {
+                        log('请求失败：' + (xhr.responseText || ('状态码 ' + xhr.status)));
+                    }
+                };
+
+                xhr.onerror = () => {
+                    clearInterval(progressInterval);
+                    quickBtn.textContent = originalQuickText;
+                    accurateBtn.textContent = originalAccurateText;
+                    enableRelevanceCheckButtons();
+                    log('网络异常，请确认后端服务可访问。');
+                };
+
+                xhr.open('POST', relevanceCheckUrl, true);
+                xhr.send(formData);
+            }
+
+            // 渲染相关性检查结果
+            function renderRelevanceResult(payload) {
+                resultGrid.innerHTML = '';
+
+                if (typeof marked === 'undefined') {
+                    log('错误：marked 库未加载');
+                    resultRaw.textContent = 'Markdown 渲染库未加载，请检查网络连接';
+                    resultBox.hidden = false;
+                    return;
+                }
+
+                // 生成相关性检查报告的 Markdown 内容
+                let markdownContent = '# 文献相关性检查报告\n\n';
+
+                if (payload.document) {
+                    // 提取文件名而不是完整路径
+                    const documentFileName = payload.document.split('/').pop();
+                    markdownContent += `- **文档**: ${escapeHtml(documentFileName)}\n`;
+                }
+                if (payload.test_date) {
+                    // 格式化日期为 "YYYY年MM月DD日 HH:mm:ss" 格式
+                    const date = new Date(payload.test_date);
+                    const formattedDate = `${date.getFullYear()}年${(date.getMonth() + 1).toString().padStart(2, '0')}月${date.getDate().toString().padStart(2, '0')}日 ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+                    markdownContent += `- **生成时间**: ${formattedDate}\n`;
+                }
+                if (payload.task_type) {
+                    markdownContent += `- **任务类型**: ${escapeHtml(payload.task_type)}\n`;
+                }
+                // 移除检查方法的显示
+
+                markdownContent += '**相关性分析结果**\n\n';
+                markdownContent += '| 指标 | 数值 |\n';
+                markdownContent += '| --- | --- |\n';
+                if (payload.relevance_score) markdownContent += `| 相关性评分 | ${payload.relevance_score}/10 |\n`;
+                if (payload.is_suitable_for_citation !== undefined) markdownContent += `| 是否适合引用 | ${payload.is_suitable_for_citation ? '是' : '否'} |\n`;
+                markdownContent += '\n';
+
+                if (payload.brief_basis) {
+                    markdownContent += `**简要依据**: ${escapeHtml(payload.brief_basis)}\n\n`;
+                }
+
+                if (payload.detailed_reasoning) {
+                    markdownContent += `**详细理由**: ${escapeHtml(payload.detailed_reasoning)}\n\n`;
+                }
+
+                // 保存 Markdown 内容用于下载
+                lastMarkdown = markdownContent;
+
+                try {
+                    // 使用 marked 库将 Markdown 渲染为 HTML
+                    const renderedHTML = marked.parse(markdownContent);
+                    resultRaw.innerHTML = renderedHTML;
+                } catch (error) {
+                    console.error('Markdown 解析错误:', error);
+                    resultRaw.textContent = markdownContent;
+                }
+
+                // 更新结果网格
+                const mapping = [
+                    ['相关性评分', `${payload.relevance_score}/10`],
+                    ['是否适合引用', payload.is_suitable_for_citation ? '是' : '否'],
+                    ['任务类型', payload.task_type],
+                    ['检查方法', payload.check_method],
+                ];
+
+                mapping.forEach(([label, value]) => {
+                    if (value !== undefined && value !== null) {
+                        const chip = document.createElement('div');
+                        chip.className = 'result-chip';
+                        chip.textContent = label + '：' + value;
+                        resultGrid.appendChild(chip);
+                    }
+                });
+
+                resultBox.hidden = false;
+                downloadMdBtn.style.display = 'inline-block';
+                downloadTxtBtn.style.display = 'inline-block';
+            }
+
+            // 为相关性检查按钮添加事件监听器
+            document.getElementById('quick-check-btn').addEventListener('click', () => {
+                performRelevanceCheck(false); // 快速检测，useFullContent=false
+            });
+
+            document.getElementById('accurate-check-btn').addEventListener('click', () => {
+                performRelevanceCheck(true); // 准确检查，useFullContent=true
+            });
+
+            // 关于按钮事件
+            const aboutBtn = document.getElementById('about-btn');
+            if (aboutBtn) {
+                aboutBtn.addEventListener('click', function() {
+                    const modal = document.getElementById('about-modal');
+                    if (modal) {
+                        modal.style.display = 'flex';
+                    }
+                });
+            }
+
+            // 关闭关于模态框事件
+            const closeAboutModalBtn = document.getElementById('close-about-modal');
+            if (closeAboutModalBtn) {
+                closeAboutModalBtn.addEventListener('click', function() {
+                    const modal = document.getElementById('about-modal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+
+            // 点击模态框外部关闭模态框
+            const modal = document.getElementById('about-modal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                    }
+                });
+            }
+
+            // 为刷新文件列表按钮添加事件监听器
+            refreshFilesBtn.addEventListener('click', loadFileList);
+
+            // 上传按钮事件
+            uploadBtn.addEventListener('click', () => {
+                const serverUrl = defaultBase.trim().replace(/\/$/, '');
+                const file = fileInput.files[0];
+
+                if (!file) {
+                    log('请先选择要上传的 Word 文档。');
+                    return;
+                }
+
+                const uploadOnlyUrl = serverUrl + '/api/upload-only';
+
+                const formData = new FormData();
+                formData.append('file', file);
+
+                setBar(uploadProgress, 0);
+                setBar(analysisProgress, 0);
+                log('准备上传文件：' + file.name);
+
+                uploadBtn.disabled = true;
+
+                const xhr = new XMLHttpRequest();
+
+                xhr.upload.onprogress = (evt) => {
+                    if (!evt.lengthComputable) return;
+                    const percent = (evt.loaded / evt.total) * 100;
+                    setBar(uploadProgress, percent);
+
+                    if (percent >= 99) {
+                        log('上传完成，正在处理...');
+                    }
+                };
+
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+
+                    uploadBtn.disabled = false;
+
+                    if (xhr.status === 200) {
+                        setBar(uploadProgress, 100);
+                        log('文件上传成功！');
+
+                        // 上传完成后自动刷新文件列表
+                        loadFileList();
+                    } else {
+                        log('上传失败：' + (xhr.responseText || ('状态码 ' + xhr.status)));
+                    }
+                };
+
+                xhr.onerror = () => {
+                    uploadBtn.disabled = false;
+                    log('网络异常，请确认后端服务可访问。');
+                };
+
+                xhr.open('POST', uploadOnlyUrl, true);
+                xhr.send(formData);
+            });
+
+            // 引用分析按钮事件
+            citationAnalyzeBtn.addEventListener('click', () => {
+                if (!selectedFilePath) {
+                    log('请先从文件列表中选择一个文档进行分析。');
+                    return;
+                }
+
+                const serverUrl = defaultBase.trim().replace(/\/$/, '');
+                const analyzeUrl = serverUrl + '/api/full-report-from-path';
+
+                // 获取当前选中的作者格式
+                const selectedAuthorFormat = document.querySelector('input[name="author-format"]:checked').value;
+
+                // 创建表单数据
+                const formData = new FormData();
+                formData.append('file_path', selectedFilePath);
+                formData.append('author_format', selectedAuthorFormat);
+
+                setBar(uploadProgress, 0);
+                setBar(analysisProgress, 0);
+                resultBox.hidden = true;
+                log('准备进行引用分析：' + selectedFilePath.split('/').pop() + '，作者格式规则：' + (selectedAuthorFormat === 'full' ? '完整显示' : '简略显示'));
+
+                citationAnalyzeBtn.disabled = true;
+
+                // 更新分析按钮的状态
+                const originalButtonText = citationAnalyzeBtn.textContent;
+                citationAnalyzeBtn.textContent = '分析中...';
+
+                const xhr = new XMLHttpRequest();
+
+                // 模拟分析进度，因为后端不提供进度API
+                const progressInterval = setInterval(() => {
+                    if (xhr.readyState < 4) {
+                        const currentProgress = parseFloat(analysisProgress.style.width || '0');
+                        if (currentProgress < 90) { // 不到100%，因为我们要等待实际响应
+                            setBar(analysisProgress, currentProgress + 2);
+                        }
+                    }
+                }, 500);
+
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+
+                    clearInterval(progressInterval); // 停止模拟进度
+
+                    // 恢复分析按钮的原始状态
+                    citationAnalyzeBtn.disabled = false;
+                    citationAnalyzeBtn.textContent = originalButtonText;
+
+                    if (xhr.status === 200) {
+                        setBar(uploadProgress, 100);
+                        setBar(analysisProgress, 100);
+                        log('引用分析完成。');
+                        try {
+                            const payload = JSON.parse(xhr.responseText);
+                            renderResult(payload);
+                        } catch (err) {
+                            log('响应解析失败：' + err.message);
+                        }
+                    } else {
+                        log('请求失败：' + (xhr.responseText || ('状态码 ' + xhr.status)));
+                    }
+                };
+
+                xhr.onerror = () => {
+                    clearInterval(progressInterval); // 停止模拟进度
+                    citationAnalyzeBtn.disabled = false;
+                    citationAnalyzeBtn.textContent = originalButtonText;
+                    log('网络异常，请确认后端服务可访问。');
+                };
+
+                xhr.open('POST', analyzeUrl, true);
+                xhr.send(formData);
+            });
+
+            // 相关性分析按钮事件
+            console.log('准备为相关性分析按钮绑定事件监听器');
+            if (relevanceAnalyzeBtn) {
+                console.log('相关性分析按钮元素存在');
+                relevanceAnalyzeBtn.addEventListener('click', () => {
+                    console.log('相关性分析按钮被点击');
+                    console.log('selectedFilePath:', selectedFilePath);
+                    if (!selectedFilePath) {
+                        log('请先从文件列表中选择一个文档进行相关性分析。');
+                        return;
+                    }
+
+                    // 显示相关性检查区域
+                    console.log('调用 showRelevanceCheckSection');
+                    showRelevanceCheckSection();
+                    enableRelevanceCheckButtons();
+
+                    // 更新相关性检查区域中的文档名称
+                    const fileName = selectedFilePath.split('/').pop();
+                    document.getElementById('relevance-doc-name').textContent = fileName;
+
+                    // 提取文档中的引用文献并填充选择框
+                    extractCitationsFromDocument(selectedFilePath);
+
+                    log('已准备相关性分析，请在下方选择文献并进行检查。');
+                });
+                console.log('相关性分析按钮事件监听器已绑定');
+            } else {
+                console.error('相关性分析按钮元素不存在');
+            }
+
+            // 删除上传文件功能
+            deleteBtn.addEventListener('click', () => {
+                if (!confirm('确定要清空所有上传的临时文件吗？此操作不可撤销。')) {
+                    return;
+                }
+
+                const serverUrl = defaultBase.trim().replace(/\/$/, '');
+                const deleteUrl = serverUrl + '/api/files-by-pattern?directory=temp_uploads';
+
+                deleteBtn.disabled = true;
+                log('正在清空上传文件...');
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('DELETE', deleteUrl, true);
+
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        deleteBtn.disabled = false;
+                        if (xhr.status === 200) {
+                            try {
+                                const response = JSON.parse(xhr.responseText);
+                                log(`成功清空上传文件: ${response.deleted_count} 个文件已被删除`);
+                                // 刷新文件列表
+                                loadFileList();
+                            } catch (err) {
+                                log('清空上传文件成功，但响应解析失败：' + err.message);
+                            }
+                        } else {
+                            log('清空上传文件失败：' + (xhr.responseText || ('状态码 ' + xhr.status)));
+                        }
+                    }
+                };
+
+                xhr.onerror = () => {
+                    deleteBtn.disabled = false;
+                    log('网络异常，清空上传文件失败。');
+                };
+
+                xhr.send();
+            });
+
+            // 页面加载完成后隐藏相关性检查区域
+            hideRelevanceCheckSection();
+            disableRelevanceCheckButtons();
+
+            // 原来的加载文件列表功能
+            loadFileList();
+        });
+    </script>
+
+    <!-- 关于模态框 -->
+    <div id="about-modal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div class="modal-content" style="background: white; border-radius: 12px; width: 80%; max-width: 800px; max-height: 80vh; overflow: auto; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <div style="padding: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h2 style="margin: 0; color: #0f172a;">引文合规性检查系统 - 功能介绍</h2>
+                    <button id="close-about-modal" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b;">&times;</button>
+                </div>
+                <div id="about-content" style="color: #334155; line-height: 1.6;">
+                    <!-- README 内容将通过 JavaScript 动态加载 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

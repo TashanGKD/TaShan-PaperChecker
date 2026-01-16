@@ -1,0 +1,1563 @@
+{
+  "test_date": "2026-01-02T23:16:32.125619",
+  "document": "/Users/menger/working/PaperChecker/tests/毛文静-最终论文.docx",
+  "document_type": "DOC",
+  "total_citations": 75,
+  "total_references": 54,
+  "results": [
+    {
+      "citation_index": 1,
+      "original_citation": "关于分享经济的概述首先由 Felson（1978）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Felson M. Spaeth J. Community Structure and Collaborative Consumption: A Routine Activity Approach[J]. American Behavioral Scientist,1978,21(4):614-624.",
+      "reference_year": "1978",
+      "matched_year": "1978",
+      "authors": [
+        "Felson M"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Felson（1978）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 2,
+      "original_citation": "后来汤天波（2015）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "汤天波, 吴晓隽.共享经济:“互联网+”下的颠覆性经济模式[J].科学发展, 2015(12):78-84.",
+      "reference_year": "2015",
+      "matched_year": "2015",
+      "authors": [
+        "汤天波",
+        "吴晓隽"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "汤天波 等（2015）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 3,
+      "original_citation": "汪雅琴（2018）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "汪雅琴.共享经济的成因、发展及影响[J].市场研究, 2018(04):25-26.",
+      "reference_year": "2018",
+      "matched_year": "2018",
+      "authors": [
+        "汪雅琴"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "汪雅琴（2018）"
+    },
+    {
+      "citation_index": 4,
+      "original_citation": "刘倩（2016）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "刘倩.共享经济的经济学意义及其应用探讨[J].经济论坛, 2016(9):150-152.",
+      "reference_year": "2016",
+      "matched_year": "2016",
+      "authors": [
+        "刘倩"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "刘倩（2016）"
+    },
+    {
+      "citation_index": 5,
+      "original_citation": "董成惠（2016）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "董成惠.共享经济:理论与现实[J].广东财经大学学报, 2016, 31(05):4-15.",
+      "reference_year": "2016",
+      "matched_year": "2016",
+      "authors": [
+        "董成惠"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "董成惠（2016）"
+    },
+    {
+      "citation_index": 6,
+      "original_citation": "类似的还有罗珉 等（2015）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "罗珉, 李亮宇.互联网时代的商业模式创新:价值创造视角[J].中国工业经济, 2015(01):95-107.",
+      "reference_year": "2015",
+      "matched_year": "2015",
+      "authors": [
+        "罗珉",
+        "李亮宇"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "罗珉 等（2015）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 7,
+      "original_citation": "类似的还有罗珉（2015）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "罗珉, 李亮宇.互联网时代的商业模式创新:价值创造视角[J].中国工业经济, 2015(01):95-107.",
+      "reference_year": "2015",
+      "matched_year": "2015",
+      "authors": [
+        "罗珉",
+        "李亮宇"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "罗珉 等（2015）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 8,
+      "original_citation": "这是Botsman 等（2011）",
+      "matched": true,
+      "needs_correction": true,
+      "needs_formatting": true,
+      "reference_text": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard Business, 2010(2): 44-46.",
+      "reference_year": "2010",
+      "matched_year": "2010",
+      "authors": [
+        "Botsman",
+        "Rachel",
+        "Roo Rogers"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "这是Botsman 等（2010）",
+      "correction_reason": "年份不一致",
+      "formatted_citation": "Botsman et al.（2010）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 9,
+      "original_citation": "颜婧宇（2015）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "颜婧宇.Uber(优步)启蒙和引领全球共享经济发展的思考[J].商业研究, 2015(19):13-17．",
+      "reference_year": "2015",
+      "matched_year": "2015",
+      "authors": [
+        "颜婧宇"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "颜婧宇（2015）"
+    },
+    {
+      "citation_index": 10,
+      "original_citation": "Schor（2014）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "Schor J. Debating the Sharing Economy[R]. A Great Transition Initiative, 2014.",
+      "reference_year": "2014",
+      "matched_year": "2014",
+      "authors": [
+        "Schor J"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "Schor（2014）"
+    },
+    {
+      "citation_index": 11,
+      "original_citation": "Bardhi & Eckhardt（2015）",
+      "matched": true,
+      "needs_correction": true,
+      "needs_formatting": false,
+      "reference_text": "Bardhi, Eckhardt. Access-based consumption: the case of car sharing.[J]. Journal of Consumer Research, 2012(10): 33-38.",
+      "reference_year": "2012",
+      "matched_year": "2012",
+      "authors": [
+        "Bardhi",
+        "Eckhardt"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "Bardhi & Eckhardt（2012）",
+      "correction_reason": "年份不一致"
+    },
+    {
+      "citation_index": 12,
+      "original_citation": "这是Botsman（2011）",
+      "matched": true,
+      "needs_correction": true,
+      "needs_formatting": true,
+      "reference_text": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard Business, 2010(2): 44-46.",
+      "reference_year": "2010",
+      "matched_year": "2010",
+      "authors": [
+        "Botsman",
+        "Rachel",
+        "Roo Rogers"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "这是Botsman（2010）",
+      "correction_reason": "年份不一致",
+      "formatted_citation": "Botsman et al.（2010）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 13,
+      "original_citation": "Munke（2017）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Malthe Mikkel Munke. Regulating the European Sharing Economy: State of Play and Challenges.[J]. Intereconomics, 2017(4): 23-24.",
+      "reference_year": "2017",
+      "matched_year": "2017",
+      "authors": [
+        "Malthe Mikkel Munke"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Malthe（2017）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 14,
+      "original_citation": "朱格锋（2021）",
+      "matched": true,
+      "needs_correction": true,
+      "needs_formatting": false,
+      "reference_text": "朱格锋.共享经济高质量发展研究[D].江西财经大学, 2022.",
+      "reference_year": "2022",
+      "matched_year": "2022",
+      "authors": [
+        "朱格锋"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "朱格锋（2022）",
+      "correction_reason": "年份不一致"
+    },
+    {
+      "citation_index": 15,
+      "original_citation": "郑志来（2016）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "郑志来.共享经济的成因、内涵与商业模式研究[J].现代经济探讨, 2016(3):32-36.",
+      "reference_year": "2016",
+      "matched_year": "2016",
+      "authors": [
+        "郑志来"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "郑志来（2016）"
+    },
+    {
+      "citation_index": 16,
+      "original_citation": "罗岗（2015）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "罗岗.Uber引爆共享经济的三个内部兵法[J].中关村, 2015(9):2.",
+      "reference_year": "2015",
+      "matched_year": "2015",
+      "authors": [
+        "罗岗"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "罗岗（2015）"
+    },
+    {
+      "citation_index": 17,
+      "original_citation": "关钰桥 等（2018）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "关钰桥, 孟韬.分享经济背景下企业商业模式比较分析——以美国Uber与中国滴滴为例[J].企业经济, 2018(04):27-35.",
+      "reference_year": "2018",
+      "matched_year": "2018",
+      "authors": [
+        "关钰桥",
+        "孟韬"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "关钰桥 等（2018）"
+    },
+    {
+      "citation_index": 18,
+      "original_citation": "关钰桥（2018）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "关钰桥, 孟韬.分享经济背景下企业商业模式比较分析——以美国Uber与中国滴滴为例[J].企业经济, 2018(04):27-35.",
+      "reference_year": "2018",
+      "matched_year": "2018",
+      "authors": [
+        "关钰桥",
+        "孟韬"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "关钰桥 等（2018）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 19,
+      "original_citation": "Botsman & Rogers（2011）",
+      "matched": true,
+      "needs_correction": true,
+      "needs_formatting": true,
+      "reference_text": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard Business, 2010(2): 44-46.",
+      "reference_year": "2010",
+      "matched_year": "2010",
+      "authors": [
+        "Botsman",
+        "Rachel",
+        "Roo Rogers"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "Botsman & Rogers（2010）",
+      "correction_reason": "年份不一致",
+      "formatted_citation": "Botsman et al.（2010）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 20,
+      "original_citation": "李四海 等（2018）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "李四海, 傅瑜佳.未来共享经济的主战场:从资本竞赛到创新竞赛[J].清华管理评论, 2018, 61(5):64-69.",
+      "reference_year": "2018",
+      "matched_year": "2018",
+      "authors": [
+        "李四海",
+        "傅瑜佳"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "李四海 等（2018）"
+    },
+    {
+      "citation_index": 21,
+      "original_citation": "李四海（2018）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "李四海, 傅瑜佳.未来共享经济的主战场:从资本竞赛到创新竞赛[J].清华管理评论, 2018, 61(5):64-69.",
+      "reference_year": "2018",
+      "matched_year": "2018",
+      "authors": [
+        "李四海",
+        "傅瑜佳"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "李四海 等（2018）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 22,
+      "original_citation": "Kamargiann et al.（2016）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Maria Kamargianni, Weibo Li, Melinda Matyas, Andreas Schäfer, A Critical Review of New Mobility Services for Urban Transport, Transportation Research Procedia, Volume14,2016,Pages3294-3303.",
+      "reference_year": "2016",
+      "matched_year": "2016",
+      "authors": [
+        "Maria Kamargianni",
+        "Weibo Li",
+        "Melinda Matyas",
+        "Andreas Schäfer",
+        "A Critical Review of New Mobility Services for Urban Transport",
+        "Transportation Research Procedia",
+        "Volume14",
+        "2016",
+        "Pages3294-3303"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Maria et al.（2016）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 23,
+      "original_citation": "Tang et al.（2017）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "Tang Y , Pan H , Fei Y .Research on Users' Frequency of Ride in Shanghai Minhang Bike-sharing System[J].Transportation Research Procedia, 2017, 25:4983-4991.",
+      "reference_year": "2017",
+      "matched_year": "2017",
+      "authors": [
+        "Tang Y",
+        "Pan H",
+        "Fei Y"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "Tang et al.（2017）"
+    },
+    {
+      "citation_index": 24,
+      "original_citation": "学者Wu et al.（2023）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Wu Xianyu; Lin Jie; Yang Yang; Guo Jingxue.A digital decision approach for scheduling process planning of shared bikes under Internet of Things environment. Applied Soft Computing Journal,2023.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "Wu Xianyu; Lin Jie; Yang Yang; Guo Jingxue"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Wu（2023）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 25,
+      "original_citation": "Kamargiann（2016）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Maria Kamargianni, Weibo Li, Melinda Matyas, Andreas Schäfer, A Critical Review of New Mobility Services for Urban Transport, Transportation Research Procedia, Volume14,2016,Pages3294-3303.",
+      "reference_year": "2016",
+      "matched_year": "2016",
+      "authors": [
+        "Maria Kamargianni",
+        "Weibo Li",
+        "Melinda Matyas",
+        "Andreas Schäfer",
+        "A Critical Review of New Mobility Services for Urban Transport",
+        "Transportation Research Procedia",
+        "Volume14",
+        "2016",
+        "Pages3294-3303"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Maria et al.（2016）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 26,
+      "original_citation": "Tang（2017）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Tang Y , Pan H , Fei Y .Research on Users' Frequency of Ride in Shanghai Minhang Bike-sharing System[J].Transportation Research Procedia, 2017, 25:4983-4991.",
+      "reference_year": "2017",
+      "matched_year": "2017",
+      "authors": [
+        "Tang Y",
+        "Pan H",
+        "Fei Y"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Tang et al.（2017）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 27,
+      "original_citation": "学者Wu（2023）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Wu Xianyu; Lin Jie; Yang Yang; Guo Jingxue.A digital decision approach for scheduling process planning of shared bikes under Internet of Things environment. Applied Soft Computing Journal,2023.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "Wu Xianyu; Lin Jie; Yang Yang; Guo Jingxue"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Wu（2023）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 28,
+      "original_citation": "纪淑平 等（2018）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "纪淑平, 李振国.国外共享单车发展对我国的经验借鉴与启示[J].对外经贸实务, 2018(04):36-39.",
+      "reference_year": "2018",
+      "matched_year": "2018",
+      "authors": [
+        "纪淑平",
+        "李振国"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "纪淑平 等（2018）"
+    },
+    {
+      "citation_index": 29,
+      "original_citation": "张颖丽（2023）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "张颖丽.浅析共享经济经营模式及发展建议——以共享单车为例[J].现代商业, 2023(09):15-18.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "张颖丽"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "张颖丽（2023）"
+    },
+    {
+      "citation_index": 30,
+      "original_citation": "王亚（2023）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "王亚.共享经济模式下企业可持续运营问题研究[D].安徽财经大学, 2023.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "王亚"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "王亚（2023）"
+    },
+    {
+      "citation_index": 31,
+      "original_citation": "纪淑平（2018）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "纪淑平, 李振国.国外共享单车发展对我国的经验借鉴与启示[J].对外经贸实务, 2018(04):36-39.",
+      "reference_year": "2018",
+      "matched_year": "2018",
+      "authors": [
+        "纪淑平",
+        "李振国"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "纪淑平 等（2018）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 32,
+      "original_citation": "赵若羽（2019）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "赵若羽.基于摩拜单车的共享单车发展现状分析[J].现代商贸工业, 2019, 40(17):62-64.",
+      "reference_year": "2019",
+      "matched_year": "2019",
+      "authors": [
+        "赵若羽"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "赵若羽（2019）"
+    },
+    {
+      "citation_index": 33,
+      "original_citation": "欧国立 等（2019）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "欧国立, 张瑞琪, 王兴婧.共享单车经营模式的发展路径[J].长安大学学报(社会科学版), 2019, 21(04):70-81.",
+      "reference_year": "2019",
+      "matched_year": "2019",
+      "authors": [
+        "欧国立",
+        "张瑞琪",
+        "王兴婧"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "欧国立 等（2019）"
+    },
+    {
+      "citation_index": 34,
+      "original_citation": "在融资方面张玉利 等（2019）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "张玉利, 黄鹤.估值“互联网+”——来自共享单车行业的启示[J].现代管理科学, 2019(03):94-96.",
+      "reference_year": "2019",
+      "matched_year": "2019",
+      "authors": [
+        "张玉利",
+        "黄鹤"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "张玉利 等（2019）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 35,
+      "original_citation": "郑迦元（2021）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "郑迦元.基于文本挖掘的城市共享单车治理政策全面解读[J].商业经济研究, 2021(20):189-192.",
+      "reference_year": "2021",
+      "matched_year": "2021",
+      "authors": [
+        "郑迦元"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "郑迦元（2021）"
+    },
+    {
+      "citation_index": 36,
+      "original_citation": "欧国立（2019）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "欧国立, 张瑞琪, 王兴婧.共享单车经营模式的发展路径[J].长安大学学报(社会科学版), 2019, 21(04):70-81.",
+      "reference_year": "2019",
+      "matched_year": "2019",
+      "authors": [
+        "欧国立",
+        "张瑞琪",
+        "王兴婧"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "欧国立 等（2019）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 37,
+      "original_citation": "在融资方面张玉利（2019）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "张玉利, 黄鹤.估值“互联网+”——来自共享单车行业的启示[J].现代管理科学, 2019(03):94-96.",
+      "reference_year": "2019",
+      "matched_year": "2019",
+      "authors": [
+        "张玉利",
+        "黄鹤"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "张玉利 等（2019）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 38,
+      "original_citation": "葛文静（2017）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "葛文静.共享单车价值网模型的构建及盈利模式探讨——以摩拜和OFO共享单车为例[J].中国商论, 2017(15):174-176.",
+      "reference_year": "2017",
+      "matched_year": "2017",
+      "authors": [
+        "葛文静"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "葛文静（2017）"
+    },
+    {
+      "citation_index": 39,
+      "original_citation": "王建刚（2017）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "王建刚.互联网分享经济下共享单车的盈利模式探析[J].中国商论, 2017(11):147-148.",
+      "reference_year": "2017",
+      "matched_year": "2017",
+      "authors": [
+        "王建刚"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "王建刚（2017）"
+    },
+    {
+      "citation_index": 40,
+      "original_citation": "高岳（2023）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "高岳, 王海智, 刘思茹.基于层次分析的共享单车用户满意度影响因素[J].科技和产业, 2023, 23(22):99-104.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "高岳",
+        "王海智",
+        "刘思茹"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "高岳 等（2023）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 41,
+      "original_citation": "盛家荣（2020）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "盛家荣.共享单车企业盈利模式研究[D].中南林业科技大学, 2020.",
+      "reference_year": "2020",
+      "matched_year": "2020",
+      "authors": [
+        "盛家荣"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "盛家荣（2020）"
+    },
+    {
+      "citation_index": 42,
+      "original_citation": "邹林林 等（2023）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "邹林林, 姚恩建, 潘龙.面向停取自平衡的共享单车补贴方案定价优化方法[J].交通工程, 2023, 23(04):1-7+15.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "邹林林",
+        "姚恩建",
+        "潘龙"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "邹林林 等（2023）"
+    },
+    {
+      "citation_index": 43,
+      "original_citation": "邹林林（2023）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "邹林林, 姚恩建, 潘龙.面向停取自平衡的共享单车补贴方案定价优化方法[J].交通工程, 2023, 23(04):1-7+15.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "邹林林",
+        "姚恩建",
+        "潘龙"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "邹林林 等（2023）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 44,
+      "original_citation": "张晨燕（2020）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "张晨燕.城市公交与共享单车竞合关系及政策效应研究[D].北京交通大学, 2020.",
+      "reference_year": "2020",
+      "matched_year": "2020",
+      "authors": [
+        "张晨燕"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "张晨燕（2020）"
+    },
+    {
+      "citation_index": 45,
+      "original_citation": "王涛（2021）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "王涛.共享单车投放方式与政策研究[D].上海财经大学, 2021.",
+      "reference_year": "2021",
+      "matched_year": "2021",
+      "authors": [
+        "王涛"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "王涛（2021）"
+    },
+    {
+      "citation_index": 46,
+      "original_citation": "Johnson & Christensen（2008）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Johnson M.W., Christensen C. M., Kagermann H. Reinventing Your Business Model[J]. Harvard Business Review,2008,86(11):51-59.",
+      "reference_year": "2008",
+      "matched_year": "2008",
+      "authors": [
+        "Johnson M"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Johnson（2008）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 47,
+      "original_citation": "Osterwalder（2005）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Osterwalder, A, Yves Pigneur, and Chirstopher L Tucci. Clarifying Business Models: Origins, Present, and Future of the Concept [J]. Communications of the Informations Systems, 2005, 15(5) : 1-25.",
+      "reference_year": "2005",
+      "matched_year": "2005",
+      "authors": [
+        "Osterwalder",
+        "A",
+        "Yves Pigneur",
+        "Chirstopher L Tucci"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Osterwalder et al.（2005）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 48,
+      "original_citation": "Teece（2010）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "Teece D.J. Business Models, Business Strategy and Innovation[J].LongRangePlanning,2010,43(2):172-194",
+      "reference_year": "2010",
+      "matched_year": "2010",
+      "authors": [
+        "Teece D"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "Teece（2010）"
+    },
+    {
+      "citation_index": 49,
+      "original_citation": "魏炜 等（2012）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "魏炜, 朱武祥, 林桂平.基于利益相关者交易结构的商业模式理论[J].管理世界, 2012(12):125-131.",
+      "reference_year": "2012",
+      "matched_year": "2012",
+      "authors": [
+        "魏炜",
+        "朱武祥",
+        "林桂平"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "魏炜 等（2012）"
+    },
+    {
+      "citation_index": 50,
+      "original_citation": "汪寿阳 等（2015）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "汪寿阳, 敖敬宁, 乔晗等.基于知识管理的商业模式冰山理论[J].管理评论, 2015, 27(06):3-10.",
+      "reference_year": "2015",
+      "matched_year": "2015",
+      "authors": [
+        "汪寿阳",
+        "敖敬宁",
+        "乔晗等"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "汪寿阳 等（2015）"
+    },
+    {
+      "citation_index": 51,
+      "original_citation": "魏炜（2012）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "魏炜, 朱武祥, 林桂平.基于利益相关者交易结构的商业模式理论[J].管理世界, 2012(12):125-131.",
+      "reference_year": "2012",
+      "matched_year": "2012",
+      "authors": [
+        "魏炜",
+        "朱武祥",
+        "林桂平"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "魏炜 等（2012）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 52,
+      "original_citation": "汪寿阳（2015）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "汪寿阳, 敖敬宁, 乔晗等.基于知识管理的商业模式冰山理论[J].管理评论, 2015, 27(06):3-10.",
+      "reference_year": "2015",
+      "matched_year": "2015",
+      "authors": [
+        "汪寿阳",
+        "敖敬宁",
+        "乔晗等"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "汪寿阳 等（2015）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 53,
+      "original_citation": "郭晓琴（2019）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "郭晓琴. 分享经济时代知识付费平台的商业模式优化研究[D].苏州大学, 2019.",
+      "reference_year": "2019",
+      "matched_year": "2019",
+      "authors": [
+        "郭晓琴"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "郭晓琴（2019）"
+    },
+    {
+      "citation_index": 54,
+      "original_citation": "汤新慧（2023）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "汤新慧, 邢小强, 周平录.商业模式创新：研究现状与展望[J].研究与发展管理, 2023, 35(04):170-182.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "汤新慧",
+        "邢小强",
+        "周平录"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "汤新慧 等（2023）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 55,
+      "original_citation": "陈军 等（2023）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "陈军, 李庆瑞.数字经济下商业模式创新与盈余管理的探索[J].上海商业, 2023(01):29-31.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "陈军",
+        "李庆瑞"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "陈军 等（2023）"
+    },
+    {
+      "citation_index": 56,
+      "original_citation": "陈军（2023）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "陈军, 李庆瑞.数字经济下商业模式创新与盈余管理的探索[J].上海商业, 2023(01):29-31.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "陈军",
+        "李庆瑞"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "陈军 等（2023）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 57,
+      "original_citation": "李鸿磊（2018）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "李鸿磊.基于价值创造视角的商业模式分类研究——以三个典型企业的分类应用为例[J].管理评论, 2018, 30(04):257-272.",
+      "reference_year": "2018",
+      "matched_year": "2018",
+      "authors": [
+        "李鸿磊"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "李鸿磊（2018）"
+    },
+    {
+      "citation_index": 58,
+      "original_citation": "孙凯 等（2019）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": false,
+      "reference_text": "孙凯, 王振飞, 鄢章华.共享经济商业模式的分类和理论模型——基于三个典型案例的研究[J].管理评论, 2019, 31(07).",
+      "reference_year": "2019",
+      "matched_year": "2019",
+      "authors": [
+        "孙凯",
+        "王振飞",
+        "鄢章华"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "孙凯 等（2019）"
+    },
+    {
+      "citation_index": 59,
+      "original_citation": "孙凯（2019）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "孙凯, 王振飞, 鄢章华.共享经济商业模式的分类和理论模型——基于三个典型案例的研究[J].管理评论, 2019, 31(07).",
+      "reference_year": "2019",
+      "matched_year": "2019",
+      "authors": [
+        "孙凯",
+        "王振飞",
+        "鄢章华"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "孙凯 等（2019）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 60,
+      "original_citation": "Freeman（1984）",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 61,
+      "original_citation": "Carroll（1993）",
+      "matched": false,
+      "needs_correction": false,
+      "needs_formatting": false
+    },
+    {
+      "citation_index": 62,
+      "original_citation": "Felson (1978)",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Felson M. Spaeth J. Community Structure and Collaborative Consumption: A Routine Activity Approach[J]. American Behavioral Scientist,1978,21(4):614-624.",
+      "reference_year": "1978",
+      "matched_year": "1978",
+      "authors": [
+        "Felson M"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Felson（1978）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 63,
+      "original_citation": " Eckhardt（2015）",
+      "matched": true,
+      "needs_correction": true,
+      "needs_formatting": true,
+      "reference_text": "Bardhi, Eckhardt. Access-based consumption: the case of car sharing.[J]. Journal of Consumer Research, 2012(10): 33-38.",
+      "reference_year": "2012",
+      "matched_year": "2012",
+      "authors": [
+        "Bardhi",
+        "Eckhardt"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "Eckhardt（2012）",
+      "correction_reason": "年份不一致",
+      "formatted_citation": "Bardhi & Eckhardt（2012）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 64,
+      "original_citation": "Schor (2014)",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Schor J. Debating the Sharing Economy[R]. A Great Transition Initiative, 2014.",
+      "reference_year": "2014",
+      "matched_year": "2014",
+      "authors": [
+        "Schor J"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Schor（2014）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 65,
+      "original_citation": "Bardhi & Eckhardt (2015)",
+      "matched": true,
+      "needs_correction": true,
+      "needs_formatting": false,
+      "reference_text": "Bardhi, Eckhardt. Access-based consumption: the case of car sharing.[J]. Journal of Consumer Research, 2012(10): 33-38.",
+      "reference_year": "2012",
+      "matched_year": "2012",
+      "authors": [
+        "Bardhi",
+        "Eckhardt"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "Bardhi & Eckhardt（2012）",
+      "correction_reason": "年份不一致"
+    },
+    {
+      "citation_index": 66,
+      "original_citation": "Munke (2017)",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Malthe Mikkel Munke. Regulating the European Sharing Economy: State of Play and Challenges.[J]. Intereconomics, 2017(4): 23-24.",
+      "reference_year": "2017",
+      "matched_year": "2017",
+      "authors": [
+        "Malthe Mikkel Munke"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Malthe（2017）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 67,
+      "original_citation": " Rogers（2011）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Botsman R., Rogers R. What’s Mine Is Yours: The Rise of Collaborative Consumption[M]. New York:Harper Business,2011.",
+      "reference_year": "2011",
+      "matched_year": "2011",
+      "authors": [
+        "Botsman R"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Botsman（2011）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 68,
+      "original_citation": "Botsman & Rogers (2011)",
+      "matched": true,
+      "needs_correction": true,
+      "needs_formatting": true,
+      "reference_text": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard Business, 2010(2): 44-46.",
+      "reference_year": "2010",
+      "matched_year": "2010",
+      "authors": [
+        "Botsman",
+        "Rachel",
+        "Roo Rogers"
+      ],
+      "has_et_al": false,
+      "corrected_citation": "Botsman & Rogers（2010）",
+      "correction_reason": "年份不一致",
+      "formatted_citation": "Botsman et al.（2010）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 69,
+      "original_citation": "Kamargiann et al. (2016)",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Maria Kamargianni, Weibo Li, Melinda Matyas, Andreas Schäfer, A Critical Review of New Mobility Services for Urban Transport, Transportation Research Procedia, Volume14,2016,Pages3294-3303.",
+      "reference_year": "2016",
+      "matched_year": "2016",
+      "authors": [
+        "Maria Kamargianni",
+        "Weibo Li",
+        "Melinda Matyas",
+        "Andreas Schäfer",
+        "A Critical Review of New Mobility Services for Urban Transport",
+        "Transportation Research Procedia",
+        "Volume14",
+        "2016",
+        "Pages3294-3303"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Maria et al.（2016）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 70,
+      "original_citation": "Tang et al. (2017)",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Tang Y , Pan H , Fei Y .Research on Users' Frequency of Ride in Shanghai Minhang Bike-sharing System[J].Transportation Research Procedia, 2017, 25:4983-4991.",
+      "reference_year": "2017",
+      "matched_year": "2017",
+      "authors": [
+        "Tang Y",
+        "Pan H",
+        "Fei Y"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Tang et al.（2017）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 71,
+      "original_citation": "Wu et al. (2023)",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Wu Xianyu; Lin Jie; Yang Yang; Guo Jingxue.A digital decision approach for scheduling process planning of shared bikes under Internet of Things environment. Applied Soft Computing Journal,2023.",
+      "reference_year": "2023",
+      "matched_year": "2023",
+      "authors": [
+        "Wu Xianyu; Lin Jie; Yang Yang; Guo Jingxue"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Wu（2023）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 72,
+      "original_citation": " Christensen（2008）",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Johnson M.W., Christensen C. M., Kagermann H. Reinventing Your Business Model[J]. Harvard Business Review,2008,86(11):51-59.",
+      "reference_year": "2008",
+      "matched_year": "2008",
+      "authors": [
+        "Johnson M"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Johnson（2008）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 73,
+      "original_citation": "Johnson & Christensen (2008)",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Johnson M.W., Christensen C. M., Kagermann H. Reinventing Your Business Model[J]. Harvard Business Review,2008,86(11):51-59.",
+      "reference_year": "2008",
+      "matched_year": "2008",
+      "authors": [
+        "Johnson M"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Johnson（2008）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 74,
+      "original_citation": "Osterwalder (2005)",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Osterwalder, A, Yves Pigneur, and Chirstopher L Tucci. Clarifying Business Models: Origins, Present, and Future of the Concept [J]. Communications of the Informations Systems, 2005, 15(5) : 1-25.",
+      "reference_year": "2005",
+      "matched_year": "2005",
+      "authors": [
+        "Osterwalder",
+        "A",
+        "Yves Pigneur",
+        "Chirstopher L Tucci"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Osterwalder et al.（2005）",
+      "formatting_reason": "作者格式不一致"
+    },
+    {
+      "citation_index": 75,
+      "original_citation": "Teece (2010)",
+      "matched": true,
+      "needs_correction": false,
+      "needs_formatting": true,
+      "reference_text": "Teece D.J. Business Models, Business Strategy and Innovation[J].LongRangePlanning,2010,43(2):172-194",
+      "reference_year": "2010",
+      "matched_year": "2010",
+      "authors": [
+        "Teece D"
+      ],
+      "has_et_al": false,
+      "formatted_citation": "Teece（2010）",
+      "formatting_reason": "作者格式不一致"
+    }
+  ],
+  "matched_count": 73,
+  "unmatched_count": 2,
+  "corrected_count": 8,
+  "formatted_count": 41,
+  "unused_references_count": 10,
+  "match_rate": "97.3%",
+  "corrections_needed": [
+    {
+      "original": "这是Botsman 等（2011）",
+      "corrected": "这是Botsman 等（2010）",
+      "reference": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard..."
+    },
+    {
+      "original": "Bardhi & Eckhardt（2015）",
+      "corrected": "Bardhi & Eckhardt（2012）",
+      "reference": "Bardhi, Eckhardt. Access-based consumption: the case of car sharing.[J]. Journal of Consumer Researc..."
+    },
+    {
+      "original": "这是Botsman（2011）",
+      "corrected": "这是Botsman（2010）",
+      "reference": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard..."
+    },
+    {
+      "original": "朱格锋（2021）",
+      "corrected": "朱格锋（2022）",
+      "reference": "朱格锋.共享经济高质量发展研究[D].江西财经大学, 2022...."
+    },
+    {
+      "original": "Botsman & Rogers（2011）",
+      "corrected": "Botsman & Rogers（2010）",
+      "reference": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard..."
+    },
+    {
+      "original": " Eckhardt（2015）",
+      "corrected": "Eckhardt（2012）",
+      "reference": "Bardhi, Eckhardt. Access-based consumption: the case of car sharing.[J]. Journal of Consumer Researc..."
+    },
+    {
+      "original": "Bardhi & Eckhardt (2015)",
+      "corrected": "Bardhi & Eckhardt（2012）",
+      "reference": "Bardhi, Eckhardt. Access-based consumption: the case of car sharing.[J]. Journal of Consumer Researc..."
+    },
+    {
+      "original": "Botsman & Rogers (2011)",
+      "corrected": "Botsman & Rogers（2010）",
+      "reference": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard..."
+    }
+  ],
+  "formatting_needed": [
+    {
+      "original": "关于分享经济的概述首先由 Felson（1978）",
+      "formatted": "Felson（1978）",
+      "reference": "Felson M. Spaeth J. Community Structure and Collaborative Consumption: A Routine Activity Approach[J..."
+    },
+    {
+      "original": "后来汤天波（2015）",
+      "formatted": "汤天波 等（2015）",
+      "reference": "汤天波, 吴晓隽.共享经济:“互联网+”下的颠覆性经济模式[J].科学发展, 2015(12):78-84...."
+    },
+    {
+      "original": "类似的还有罗珉 等（2015）",
+      "formatted": "罗珉 等（2015）",
+      "reference": "罗珉, 李亮宇.互联网时代的商业模式创新:价值创造视角[J].中国工业经济, 2015(01):95-107...."
+    },
+    {
+      "original": "类似的还有罗珉（2015）",
+      "formatted": "罗珉 等（2015）",
+      "reference": "罗珉, 李亮宇.互联网时代的商业模式创新:价值创造视角[J].中国工业经济, 2015(01):95-107...."
+    },
+    {
+      "original": "这是Botsman 等（2010）",
+      "formatted": "Botsman et al.（2010）",
+      "reference": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard..."
+    },
+    {
+      "original": "这是Botsman（2010）",
+      "formatted": "Botsman et al.（2010）",
+      "reference": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard..."
+    },
+    {
+      "original": "Munke（2017）",
+      "formatted": "Malthe（2017）",
+      "reference": "Malthe Mikkel Munke. Regulating the European Sharing Economy: State of Play and Challenges.[J]. Inte..."
+    },
+    {
+      "original": "关钰桥（2018）",
+      "formatted": "关钰桥 等（2018）",
+      "reference": "关钰桥, 孟韬.分享经济背景下企业商业模式比较分析——以美国Uber与中国滴滴为例[J].企业经济, 2018(04):27-35...."
+    },
+    {
+      "original": "Botsman & Rogers（2010）",
+      "formatted": "Botsman et al.（2010）",
+      "reference": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard..."
+    },
+    {
+      "original": "李四海（2018）",
+      "formatted": "李四海 等（2018）",
+      "reference": "李四海, 傅瑜佳.未来共享经济的主战场:从资本竞赛到创新竞赛[J].清华管理评论, 2018, 61(5):64-69...."
+    },
+    {
+      "original": "Kamargiann et al.（2016）",
+      "formatted": "Maria et al.（2016）",
+      "reference": "Maria Kamargianni, Weibo Li, Melinda Matyas, Andreas Schäfer, A Critical Review of New Mobility Serv..."
+    },
+    {
+      "original": "学者Wu et al.（2023）",
+      "formatted": "Wu（2023）",
+      "reference": "Wu Xianyu; Lin Jie; Yang Yang; Guo Jingxue.A digital decision approach for scheduling process planni..."
+    },
+    {
+      "original": "Kamargiann（2016）",
+      "formatted": "Maria et al.（2016）",
+      "reference": "Maria Kamargianni, Weibo Li, Melinda Matyas, Andreas Schäfer, A Critical Review of New Mobility Serv..."
+    },
+    {
+      "original": "Tang（2017）",
+      "formatted": "Tang et al.（2017）",
+      "reference": "Tang Y , Pan H , Fei Y .Research on Users' Frequency of Ride in Shanghai Minhang Bike-sharing System..."
+    },
+    {
+      "original": "学者Wu（2023）",
+      "formatted": "Wu（2023）",
+      "reference": "Wu Xianyu; Lin Jie; Yang Yang; Guo Jingxue.A digital decision approach for scheduling process planni..."
+    },
+    {
+      "original": "纪淑平（2018）",
+      "formatted": "纪淑平 等（2018）",
+      "reference": "纪淑平, 李振国.国外共享单车发展对我国的经验借鉴与启示[J].对外经贸实务, 2018(04):36-39...."
+    },
+    {
+      "original": "在融资方面张玉利 等（2019）",
+      "formatted": "张玉利 等（2019）",
+      "reference": "张玉利, 黄鹤.估值“互联网+”——来自共享单车行业的启示[J].现代管理科学, 2019(03):94-96...."
+    },
+    {
+      "original": "欧国立（2019）",
+      "formatted": "欧国立 等（2019）",
+      "reference": "欧国立, 张瑞琪, 王兴婧.共享单车经营模式的发展路径[J].长安大学学报(社会科学版), 2019, 21(04):70-81...."
+    },
+    {
+      "original": "在融资方面张玉利（2019）",
+      "formatted": "张玉利 等（2019）",
+      "reference": "张玉利, 黄鹤.估值“互联网+”——来自共享单车行业的启示[J].现代管理科学, 2019(03):94-96...."
+    },
+    {
+      "original": "高岳（2023）",
+      "formatted": "高岳 等（2023）",
+      "reference": "高岳, 王海智, 刘思茹.基于层次分析的共享单车用户满意度影响因素[J].科技和产业, 2023, 23(22):99-104...."
+    },
+    {
+      "original": "邹林林（2023）",
+      "formatted": "邹林林 等（2023）",
+      "reference": "邹林林, 姚恩建, 潘龙.面向停取自平衡的共享单车补贴方案定价优化方法[J].交通工程, 2023, 23(04):1-7+15...."
+    },
+    {
+      "original": "Johnson & Christensen（2008）",
+      "formatted": "Johnson（2008）",
+      "reference": "Johnson M.W., Christensen C. M., Kagermann H. Reinventing Your Business Model[J]. Harvard Business R..."
+    },
+    {
+      "original": "Osterwalder（2005）",
+      "formatted": "Osterwalder et al.（2005）",
+      "reference": "Osterwalder, A, Yves Pigneur, and Chirstopher L Tucci. Clarifying Business Models: Origins, Present,..."
+    },
+    {
+      "original": "魏炜（2012）",
+      "formatted": "魏炜 等（2012）",
+      "reference": "魏炜, 朱武祥, 林桂平.基于利益相关者交易结构的商业模式理论[J].管理世界, 2012(12):125-131...."
+    },
+    {
+      "original": "汪寿阳（2015）",
+      "formatted": "汪寿阳 等（2015）",
+      "reference": "汪寿阳, 敖敬宁, 乔晗等.基于知识管理的商业模式冰山理论[J].管理评论, 2015, 27(06):3-10...."
+    },
+    {
+      "original": "汤新慧（2023）",
+      "formatted": "汤新慧 等（2023）",
+      "reference": "汤新慧, 邢小强, 周平录.商业模式创新：研究现状与展望[J].研究与发展管理, 2023, 35(04):170-182...."
+    },
+    {
+      "original": "陈军（2023）",
+      "formatted": "陈军 等（2023）",
+      "reference": "陈军, 李庆瑞.数字经济下商业模式创新与盈余管理的探索[J].上海商业, 2023(01):29-31...."
+    },
+    {
+      "original": "孙凯（2019）",
+      "formatted": "孙凯 等（2019）",
+      "reference": "孙凯, 王振飞, 鄢章华.共享经济商业模式的分类和理论模型——基于三个典型案例的研究[J].管理评论, 2019, 31(07)...."
+    },
+    {
+      "original": "Felson (1978)",
+      "formatted": "Felson（1978）",
+      "reference": "Felson M. Spaeth J. Community Structure and Collaborative Consumption: A Routine Activity Approach[J..."
+    },
+    {
+      "original": "Eckhardt（2012）",
+      "formatted": "Bardhi & Eckhardt（2012）",
+      "reference": "Bardhi, Eckhardt. Access-based consumption: the case of car sharing.[J]. Journal of Consumer Researc..."
+    },
+    {
+      "original": "Schor (2014)",
+      "formatted": "Schor（2014）",
+      "reference": "Schor J. Debating the Sharing Economy[R]. A Great Transition Initiative, 2014...."
+    },
+    {
+      "original": "Munke (2017)",
+      "formatted": "Malthe（2017）",
+      "reference": "Malthe Mikkel Munke. Regulating the European Sharing Economy: State of Play and Challenges.[J]. Inte..."
+    },
+    {
+      "original": " Rogers（2011）",
+      "formatted": "Botsman（2011）",
+      "reference": "Botsman R., Rogers R. What’s Mine Is Yours: The Rise of Collaborative Consumption[M]. New York:Harpe..."
+    },
+    {
+      "original": "Botsman & Rogers（2010）",
+      "formatted": "Botsman et al.（2010）",
+      "reference": "Botsman, Rachel, Roo Rogers. What’s Mine Is Yours: The Rise of Clooaborative Consumption[J]. Harvard..."
+    },
+    {
+      "original": "Kamargiann et al. (2016)",
+      "formatted": "Maria et al.（2016）",
+      "reference": "Maria Kamargianni, Weibo Li, Melinda Matyas, Andreas Schäfer, A Critical Review of New Mobility Serv..."
+    },
+    {
+      "original": "Tang et al. (2017)",
+      "formatted": "Tang et al.（2017）",
+      "reference": "Tang Y , Pan H , Fei Y .Research on Users' Frequency of Ride in Shanghai Minhang Bike-sharing System..."
+    },
+    {
+      "original": "Wu et al. (2023)",
+      "formatted": "Wu（2023）",
+      "reference": "Wu Xianyu; Lin Jie; Yang Yang; Guo Jingxue.A digital decision approach for scheduling process planni..."
+    },
+    {
+      "original": " Christensen（2008）",
+      "formatted": "Johnson（2008）",
+      "reference": "Johnson M.W., Christensen C. M., Kagermann H. Reinventing Your Business Model[J]. Harvard Business R..."
+    },
+    {
+      "original": "Johnson & Christensen (2008)",
+      "formatted": "Johnson（2008）",
+      "reference": "Johnson M.W., Christensen C. M., Kagermann H. Reinventing Your Business Model[J]. Harvard Business R..."
+    },
+    {
+      "original": "Osterwalder (2005)",
+      "formatted": "Osterwalder et al.（2005）",
+      "reference": "Osterwalder, A, Yves Pigneur, and Chirstopher L Tucci. Clarifying Business Models: Origins, Present,..."
+    },
+    {
+      "original": "Teece (2010)",
+      "formatted": "Teece（2010）",
+      "reference": "Teece D.J. Business Models, Business Strategy and Innovation[J].LongRangePlanning,2010,43(2):172-194..."
+    }
+  ],
+  "unused_references": [
+    {
+      "text": "ARTEMYEVA（袁丽萌）M.基于共享经济的商业模式创新驱动因素研究[D].对外经济贸易大学, 2022.",
+      "author": "ARTEMYEVA（袁丽萌）M",
+      "year": "2022"
+    },
+    {
+      "text": "樊丽丽.基于商业模式对ofo单车经营失败原因的分析[J].技术与市场, 2021, 28(01):187+189.",
+      "author": "樊丽丽",
+      "year": "2021"
+    },
+    {
+      "text": "关钰桥, 孟韬.数字时代共享经济商业模式合法性获取机制研究——以滴滴出行、哈啰出行和闲鱼为例[J].财经问题研究, 2022(05):27-37.",
+      "author": "关钰桥",
+      "year": "2022"
+    },
+    {
+      "text": "国家市场监督管理总局.共享经济指导原则与基础框架:GB/T41836-2022[S].2022.",
+      "author": "国家市场监督管理总局",
+      "year": null
+    },
+    {
+      "text": "李牧南, 黄槿.我国当前共享经济发展障碍与相关政策启示[J].科技管理研究, 2020, 40(8):237-242.",
+      "author": "李牧南",
+      "year": "2020"
+    },
+    {
+      "text": "孟韬, 关钰桥, 董政等.共享经济平台用户价值独创机制研究——以Airbnb与闲鱼为例[J].科学学与科学技术管理, 2020, 41(08):111-130.",
+      "author": "孟韬",
+      "year": "2020"
+    },
+    {
+      "text": "孟韬, 李佳雷.共享经济组织:数字化时代的新组织性质与成长动因[J].经济管理, 2021, 43(4):191-208.",
+      "author": "孟韬",
+      "year": "2021"
+    },
+    {
+      "text": "汪寿阳.商业模式冰山理论：方法与案例[M].科学出版社, 2017.",
+      "author": "汪寿阳",
+      "year": "2017"
+    },
+    {
+      "text": "Shafer S.M., Smith H.J., Linder J.C. The Power of Business Model[J].BusinessHorizons,2005,48(3):199-207.",
+      "author": "Shafer S",
+      "year": "2005"
+    },
+    {
+      "text": "Sharing Nicely: On Shareable Goods and the Emergence of Sharing as a Modality of Economic Production[J]. The Yale Law Journal,2004,114(2).",
+      "author": "Sharing Nicely: On Shareable Goods and the Emergence of Sharing as a Modality of Economic Production[J]",
+      "year": "2004"
+    }
+  ]
+}
